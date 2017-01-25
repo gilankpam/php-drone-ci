@@ -2,7 +2,7 @@ image: docker:git
 
 variables:
     DOCKER_DRIVER: overlay
-    DOCKER_REPO: gitlab.skuyshi.com:5000/gilankpam/php-ci
+    DOCKER_REPO: gitlab.skyshi.com:5000/gilankpam/php-ci
 
 services:
     - docker:dind

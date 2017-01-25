@@ -1,0 +1,12 @@
+{
+    "name": "gilankpam/php-ci",
+    "authors": [
+        {
+            "name": "Gilang Pambudi",
+            "email": "mail@gilankpam.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.0"
+    }
+}

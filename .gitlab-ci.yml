@@ -1,7 +1,12 @@
-image: docker:git
+image: docker:latest
+
+variables:
+    DOCKER_DRIVER: overlay
+
 services:
     - docker:dind
 build:
+    stage: build
     script:
         - docker build -t php-ci .
         - docker tag php-ci gitlab.skyshi.com:5000/gilankpam/php-ci

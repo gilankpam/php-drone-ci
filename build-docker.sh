@@ -5,6 +5,8 @@ TAG=$(git rev-parse --short HEAD)
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 PUSH=gitlab.skyshi.com:5000/gilankpam/php-ci:${BRANCH}-${TAG}
 
+echo "build docker with tag ${BRANCH}-${TAG}"
+
 docker build -t php-ci .
 docker tag php-ci $PUSH
 docker push $PUSH

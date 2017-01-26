@@ -11,3 +11,4 @@ docker push ${DOCKER_REPO}
 docker tag ${DOCKER_REPO} "${DOCKER_REPO}:${VERSION}"
 docker push "${DOCKER_REPO}:${VERSION}"
 docker rmi -f "${DOCKER_REPO}"
+docker rmi -f "${DOCKER_REPO}:${VERSION}"

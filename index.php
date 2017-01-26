@@ -7,7 +7,7 @@ $app = new \Slim\App;
 $app->get('/hello[/{name}]', function($request, $response) {
     $name = $request->getAttribute('name');
     if (!$name) {
-        $name = "bebzz zzz!";
+        $name = "bebzz zzz zzz!";
     }
     $response->getBody()->write("Hello, $name");
 

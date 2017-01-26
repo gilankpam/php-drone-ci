@@ -1,4 +1,4 @@
-- hosts: gitlab.skyshi.com
+- hosts: "{{ lookup('env', 'HOST') }}"
   remote_user: gilang
   tasks:
     
@@ -6,9 +6,10 @@
       copy: src=./docker-compose.yml dest=/tmp/docker-compose.yml
 
     - name: run compose
-      shell: docker-compose -f /tmp/docker-compose.yml -p php-ci up -d
+      shell: "TAG=${CI_BUILD_REF_SLUG}-${CI_BUILD_REF:0:8} docker-compose -f /tmp/docker-compose.yml -p php-ci up -d"
       environment:
-        TAG: master-ca2868b8
+        CI_BUILD_REF_SLUG: "{{ lookup('env', 'CI_BUILD_REF_SLUG') }}"
+        CI_BUILD_REF: "{{ lookup('env', 'CI_BUILD_REF') }}"
 
     - name: remove docker-compose file
       file: path=/tmp/docker-compose.yml state=absent

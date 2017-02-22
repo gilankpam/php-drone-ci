@@ -5,6 +5,10 @@ VERSION=${CI_BUILD_REF_SLUG}-${CI_BUILD_REF:0:8}
 
 echo "Build docker with tag ${VERSION}"
 
+echo "test docker"
+docker version
+docker ps
+
 # docker build -t "${DOCKER_REPO}" .
 # Update the latest version also
 # docker push ${DOCKER_REPO}

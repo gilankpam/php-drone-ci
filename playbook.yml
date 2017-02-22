@@ -1,0 +1,17 @@
+- hosts: "{{ lookup('env', 'DEPLOY_HOST') }}"
+  remote_user: "{{ lookup('env', 'DEPLOY_USER') }}"
+  environment:
+    TAG: "{{ lookup('env', 'TAG') }}"
+  tasks:
+    - name: Copy docker compose file
+      copy:
+        src: docker-compose.yml
+        dest: /tmp/docker-compose.yml
+    - name: Pull latest image from docker image repo
+      shell: docker-compose -p php-ci -f /tmp/docker-compose.yml pull
+    - name: Restart services
+      shell: docker-compose -p php-ci -f /tmp/docker-compose.yml up -d
+    - name: Remove docker-compose
+      file:
+        src: /tmp/docker-compose.yml
+        state: absent

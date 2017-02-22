@@ -1,14 +1,23 @@
-image: docker:git
+stages:
+  - build
+  # - deploy
 
 variables:
-    DOCKER_DRIVER: overlay
-    DOCKER_REPO: gitlab.skyshi.com:5000/gilankpam/php-ci
-    # For deployemtn
-    HOST: gitlab.skyshi.com
+  DOCKER_DRIVER: overlay
+  DOCKER_REPO: gitlab.skyshi.com:5000/gilankpam/php-ci
 
 services:
-    - docker:dind
+  - docker:dind
+
 build:
-    stage: build
-    script:
-        - sh build-docker.sh
+  image: docker:git
+  stage: build
+  script:
+    - sh build-docker.sh
+
+# dev:
+#   stage: deploy
+#   only:
+#     - master
+#   script:
+#     - sh ansible.sh

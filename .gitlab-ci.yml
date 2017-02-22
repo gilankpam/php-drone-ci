@@ -3,7 +3,6 @@ stages:
   - deploy
 
 variables:
-  DOCKER_DRIVER: overlay
   DOCKER_REPO: gitlab.skyshi.com:5000/gilankpam/php-ci
 
 build:
@@ -15,10 +14,9 @@ build:
     - sh build-docker.sh
 
 dev:
-  image: ubuntu:16.04
+  image: gitlab.skyshi.com:5000/ansible
   stage: deploy
   only:
     - master
   script:
-    - apt-get update && apt-get install -y ansible
     - sh ansible.sh

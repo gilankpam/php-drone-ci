@@ -19,4 +19,4 @@ dev:
   only:
     - master
   script:
-    - sh ansible.sh
+    - bash ansible.sh

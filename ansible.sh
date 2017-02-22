@@ -3,6 +3,8 @@
 # Get version from btanch name and commit sha1
 TAG=${CI_BUILD_REF_SLUG}-${CI_BUILD_REF:0:8}
 
+echo "Tralalala $TAG"
+
 # create host file 
 echo "${DEPLOY_HOST} ansible_user=${DEPLOY_USER} ansible_ssh_pass=${DEPLOY_PASS}" > hosts
 

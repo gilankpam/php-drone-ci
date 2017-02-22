@@ -6,12 +6,11 @@ variables:
   DOCKER_DRIVER: overlay
   DOCKER_REPO: gitlab.skyshi.com:5000/gilankpam/php-ci
 
-services:
-  - docker:dind
-
 build:
   image: docker:git
   stage: build
+  services:
+    - docker:dind
   script:
     - sh build-docker.sh
 

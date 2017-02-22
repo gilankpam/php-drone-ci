@@ -1,6 +1,6 @@
 version: '2'
 services: 
-    web:
-        image: gitlab.skyshi.com:5000/gilankpam/php-ci:${TAG}
-        ports:
-            - 8080:8080
+  web:
+    image: gitlab.skyshi.com:5000/gilankpam/php-ci:${TAG}
+    ports:
+      - 8080:8080

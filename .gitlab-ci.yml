@@ -15,9 +15,11 @@ build:
   script:
     - sh build-docker.sh
 
-# dev:
-#   stage: deploy
-#   only:
-#     - master
-#   script:
-#     - sh ansible.sh
+dev:
+  image: ubuntu:16.04
+  stage: deploy
+  only:
+    - master
+  script:
+    - apt-get update && apt-get install ansible
+    - sh ansible.sh

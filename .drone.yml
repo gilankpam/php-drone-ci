@@ -1,0 +1,12 @@
+pipeline:
+  ping:
+    image: alpine
+    commands: 
+      - ping -c 10 8.8.8.8
+
+  publish:
+    image: plugin/docker
+    repo: gitlab.skyshi.com:5000/gilankpam/php-ci
+    tag: ${DRONE_COMMIT_SHA:0:8}
+    build_args:
+      - APP_VER=${DRONE_COMMIT_SHA:0:8}

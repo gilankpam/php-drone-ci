@@ -3,6 +3,8 @@ pipeline:
     image: alpine
     commands: 
       - ping -c 10 8.8.8.8
+    when:
+      branch: master
 
   publish:
     image: plugin/docker
@@ -10,3 +12,5 @@ pipeline:
     tag: ${DRONE_COMMIT_SHA:0:8}
     build_args:
       - APP_VER=${DRONE_COMMIT_SHA:0:8}
+    when:
+      branch: master

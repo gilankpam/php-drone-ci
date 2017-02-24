@@ -2,7 +2,7 @@ pipeline:
   ping:
     image: alpine
     commands: 
-      - ping -c 10 8.8.8.8
+      - ping -c 5 8.8.8.8
     when:
       branch: master
 
